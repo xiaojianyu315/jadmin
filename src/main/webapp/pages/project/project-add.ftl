@@ -1,12 +1,5 @@
-<#include "/pages/common/layout.ftl"/>
-<@head title="首页">
+
 <script type="text/javascript">
-    $(function () {
-        $('#project_form').addClass('animated bounceInDown');
-    });
-
-
-
     function save() {
         $('#project_form').isValid(function(v){
             if (v) {
@@ -19,7 +12,7 @@
                     success: function (rsData) {
                         if (rsData.code == 'SUCCESS') {
                             webUtil.info("操作成功",function () {
-                                window.location.href='${ctx}/project/list'
+                                gobackList();
                             });
                         } else {
                             webUtil.error(rsData.message,null);
@@ -28,22 +21,21 @@
                 });
             }
         });
-
     }
 
 
+
 </script>
-</@head>
-<@body>
+
 <ol class="breadcrumb" >
     <li><a href="javascript:void(0);" onclick="goUrl('/index')">首页</a></li>
     <li><a href="javascript:void(0);">系统管理</a></li>
-    <li><a href="${ctx}/project/list">项目管理</a></li>
+    <li><a href="javascript:void(0)" onclick="gobackList()">项目管理</a></li>
     <li class="active">添加</li>
 </ol>
 
 </p>
-<form class="form-horizontal" name="project_form" id="project_form" data-validator-option="{timely:2, theme:'simple_right'}">
+<form class="form-horizontal animated bounceInDown" name="project_form" id="project_form" data-validator-option="{timely:2, theme:'simple_right'}">
     <div class="form-group">
         <label class="col-sm-2 required">项目名称</label>
         <div class="col-md-6 col-sm-10">
@@ -71,8 +63,8 @@
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="button" class="btn btn-success" onclick="save();"><i class="icon icon-save"></i> 保存</button>
-            <button type="button" class="btn btn-default" onclick="window.location.href='${ctx}/project/list'"><i class="icon icon-reply"></i> 返回</button>
+            <button type="button" class="btn btn-info" onclick="toAddOrUpdatePage('0',null);"><i class="icon icon-refresh"></i> 刷新</button>
+            <button type="button" class="btn btn-default" onclick="gobackList();"><i class="icon icon-reply"></i> 返回</button>
         </div>
     </div>
 </form>
-</@body>

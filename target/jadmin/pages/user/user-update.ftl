@@ -1,7 +1,4 @@
-<link href="${ctx}/static/zui/lib/chosen/chosen.css" rel="stylesheet">
-<link href="${ctx}/static/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
-<script src="${ctx}/static/zui/lib/chosen/chosen.js"></script>
-<script src="${ctx}/static/zTree/js/jquery.ztree.all.min.js"></script>
+
 <script type="text/javascript">
     $(function () {
         $('select.chosen-select').chosen({
@@ -110,10 +107,7 @@
                             success: function (rsData) {
                                 if (rsData.code == 'SUCCESS') {
                                     webUtil.info("操作成功", function () {
-                                        gobackAnimation();
-                                        setTimeout(function () {
-                                            loadListPage();
-                                        }, 500)
+                                        gobackList();
                                     });
                                 } else {
                                     webUtil.error(rsData.message, null);
@@ -126,35 +120,20 @@
         );
     }
 
-    function goback() {
-        gobackAnimation();
-        setTimeout(function () {
-            loadListPage();
-        }, 500)
-    }
-    function gobackAnimation() {
-        $('#userNameDiv').removeClass("animated fadeInLeft").addClass("animated fadeOutLeft");
-        $('#mobileDiv').removeClass("animated fadeInLeft").addClass("animated fadeOutLeft");
-        $('#menuDiv').removeClass("animated fadeInLeft").addClass("animated fadeOutLeft");
-
-        $('#realNameDiv').removeClass("animated fadeInRight").addClass("animated fadeOutRight");
-        $('#projectCodeDiv').removeClass("animated fadeInRight").addClass("animated fadeOutRight");
-        $('#submitDiv').removeClass("animated fadeInRight").addClass("animated fadeOutRight");
-    }
 </script>
 
 <ol class="breadcrumb">
     <li><a href="javascript:void(0);" onclick="goUrl('/index')">首页</a></li>
     <li><a href="javascript:void(0);">系统管理</a></li>
-    <li><a href="javascript:void(0)" onclick="goback()">用户管理</a></li>
+    <li><a href="javascript:void(0)" onclick="gobackList()">用户管理</a></li>
     <li class="active">修改</li>
 </ol>
 
 </p>
-<form class="form-horizontal" name="user_form" id="user_form" data-validator-option="{timely:2, theme:'simple_right'}">
+<form class="form-horizontal animated bounceInDown" name="user_form" id="user_form" data-validator-option="{timely:2, theme:'simple_right'}">
     <input type="hidden" id="userId" name="jadminUser.id" value="${user.id}"/>
 
-    <div id="userNameDiv" class="form-group animated fadeInLeft" >
+    <div id="userNameDiv" class="form-group" >
         <label class="col-sm-2 required">用户名</label>
         <div class="col-md-6 col-sm-10">
             <input type="text" class="form-control" id="userName" name="jadminUser.userName" placeholder="3-20位字母、数字"
@@ -164,7 +143,7 @@
         </div>
     </div>
 
-    <div id="realNameDiv" class="form-group animated fadeInRight">
+    <div id="realNameDiv" class="form-group">
         <label class="col-sm-2 required">真实姓名</label>
         <div class="col-md-6 col-sm-10">
             <input type="text" class="form-control" id="realName" name="jadminUser.realName"
@@ -172,7 +151,7 @@
                    data-rule="真实姓名:required;">
         </div>
     </div>
-    <div id="mobileDiv" class="form-group animated fadeInLeft">
+    <div id="mobileDiv" class="form-group">
         <label class="col-sm-2 ">手机号</label>
         <div class="col-md-6 col-sm-10">
             <input type="text" class="form-control" id="mobile"
@@ -180,7 +159,7 @@
                    placeholder="使用人手机号">
         </div>
     </div>
-    <div id="projectCodeDiv" class="form-group animated fadeInRight">
+    <div id="projectCodeDiv" class="form-group">
         <label class="col-sm-2 required">项目</label>
         <div class="col-md-6 col-sm-10">
             <select id="projectCode"
@@ -198,7 +177,7 @@
             <span id="projectCodeError"></span>
         </div>
     </div>
-    <div id="menuDiv" class="form-group animated fadeInLeft">
+    <div id="menuDiv" class="form-group">
         <label class="col-sm-2 ">菜单</label>
         <div class="col-md-6 col-sm-10">
             <div class="panel">
@@ -209,12 +188,12 @@
         </div>
         <input type="hidden" id="menuIds" name="jadminUser.menuIds" value="${user.menuIds}" data-rule="菜单:required;"/>
     </div>
-    <div id="submitDiv" class="form-group animated fadeInRight">
+    <div id="submitDiv" class="form-group">
 
         <div class="col-sm-offset-2 col-sm-10">
             <button type="button" class="btn btn-success" onclick="save();"><i class="icon icon-save"></i> 保存</button>
             <button type="button" class="btn btn-info" onclick="toAddOrUpdatePage('1','${user.id}');"><i class="icon icon-refresh"></i> 刷新</button>
-            <button type="button" class="btn btn-default" onclick="goback();"><i
+            <button type="button" class="btn btn-default" onclick="gobackList();"><i
                     class="icon icon-reply"></i> 返回
             </button>
         </div>

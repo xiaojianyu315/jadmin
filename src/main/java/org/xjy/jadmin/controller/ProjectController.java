@@ -25,24 +25,35 @@ public class ProjectController extends BaseController {
 
     private static final Logger logger = LoggerFactory.getLogger(ProjectController.class);
 
+
+    public void init() {
+        render("/pages/project/project-init.ftl");
+    }
+
     /**
      * 项目列表
      *
      * @return
      */
-    public void list() {
-        JsonResult result = new JsonResult();
+    public void listInit() {
+        render("/pages/project/project-list-init.ftl");
+    }
+
+    /**
+     * 项目列表
+     *
+     * @return
+     */
+    public void listData() {
         try {
             JadminProject project = getModel(JadminProject.class);
             Page<JadminProject> projectPage = JadminProject.dao.findProjectPage(project.getCode(), getPageNo(), AppConstant.PAGE_SIZE);
             List<JadminProject> projectList = JadminProject.dao.findProjectList();
             setAttr("projectPage", projectPage);
             setAttr("projectList", projectList);
-            keepModel(JadminProject.class);
-            render("/pages/project/project-list.ftl");
+            render("/pages/project/project-list-data.ftl");
         } catch (Exception e) {
             logger.error("UNKNOWN ERROR.", e);
-            ResultUtil.error(result, ErrorEnum.ERR_UNKNOWN);
         }
     }
 

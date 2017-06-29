@@ -1,10 +1,5 @@
 
 <script type="text/javascript">
-    $(function () {
-
-
-    });
-
     /**
      * 同步方法
      **/
@@ -47,7 +42,6 @@
     function gobackAnimation() {
         $('#passwordOldDiv').removeClass("animated fadeInLeft").addClass("animated fadeOutLeft");
         $('#passwordOldNewConfirmDiv').removeClass("animated fadeInLeft").addClass("animated fadeOutLeft");
-
         $('#passwordOldNewDiv').removeClass("animated fadeInRight").addClass("animated fadeOutRight");
         $('#submitDiv').removeClass("animated fadeInRight").addClass("animated fadeOutRight");
     }
@@ -64,7 +58,6 @@
 </p>
 <form class="form-horizontal" name="user_form" id="user_form" data-validator-option="{timely:2, theme:'simple_right'}">
     <input type="hidden" id="userId" name="userId" value="${id}"/>
-
     <div id="passwordOldDiv" class="form-group animated fadeInLeft">
         <label class="col-sm-2 required">原密码</label>
         <div class="col-md-6 col-sm-10">
@@ -75,7 +68,6 @@
             >
         </div>
     </div>
-
     <div id="passwordOldNewDiv" class="form-group animated fadeInRight">
         <label class="col-sm-2 required">新密码</label>
         <div class="col-md-6 col-sm-10">
@@ -95,9 +87,7 @@
                    data-rule-password="[/^[\w\d]{10,30}$/, '请输入10-30位数字和字母组合']">
         </div>
     </div>
-
     <div id="submitDiv" class="form-group animated fadeInRight">
-
         <div class="col-sm-offset-2 col-sm-10">
             <button type="button" class="btn btn-success" onclick="save();"><i class="icon icon-save"></i> 保存</button>
             <button type="button" class="btn btn-info" onclick="toAddOrUpdatePage('2','${id}');"><i class="icon icon-refresh"></i> 刷新</button>

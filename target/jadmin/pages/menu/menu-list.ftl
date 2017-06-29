@@ -89,7 +89,7 @@
 
     }
 
-    function remove(id) {
+    function removeMenu(id) {
         webUtil.confirm("确定要删除吗？", function () {
             $.ajax({
                 url: "${ctx }/menu/remove",
@@ -162,7 +162,7 @@
     var openAddDialog;
     function toAdd() {
         var pid = $('#menuId').val();
-        openAddDialog = webUtil.openByUrl("添加子菜单", 1000, 700, "${ctx}/menu/toAdd?id=" + pid);
+        openAddDialog = webUtil.openByUrl("添加子菜单", 600, 600, "${ctx}/menu/toAdd?id=" + pid);
     }
     /**
      * 关闭添加弹出框
@@ -184,7 +184,7 @@
 
 </p>
 
-<div class="row">
+<div class="row animated fadeInLeft">
     <div class="col-md-4">
         <div class="form-group">
             <div class="col-md-12 ">

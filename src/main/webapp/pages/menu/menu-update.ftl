@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="menu_form" id="menu_form" data-validator-option="{timely:2, theme:'simple_right'}">
+<form class="form-horizontal animated fadeInRight" name="menu_form" id="menu_form" data-validator-option="{timely:2, theme:'simple_right'}">
     <div class="col-md-8">
         <div class="col-md-12 ">
             <div class="panel">

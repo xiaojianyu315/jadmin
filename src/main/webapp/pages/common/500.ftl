@@ -1,0 +1,1 @@
+<image src="${ctx}/static/img/500.png">

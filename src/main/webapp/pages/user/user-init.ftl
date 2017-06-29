@@ -5,6 +5,8 @@
 <script type="text/javascript" src="${ctx}/static/zui/lib/datatable/zui.datatable.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/zui/lib/chosen/chosen.js"></script>
 <script type="text/javascript" src="${ctx}/static/laypage/laypage/laypage.js"></script>
+<link href="${ctx}/static/zTree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+<script src="${ctx}/static/zTree/js/jquery.ztree.all.min.js"></script>
 <script type="text/javascript">
     $(function () {
         loadListPage();
@@ -76,6 +78,16 @@
                 $('#userDiv').html("").html(rsData);
             }
         });
+    }
+
+    /**
+     * 动画返回
+     */
+    function gobackList() {
+        $('#user_form').removeClass('animated bounceInDown').addClass('animated bounceOutUp');
+        setTimeout(function () {
+            loadListPage();
+        }, 600)
     }
 </script>
 </@head>

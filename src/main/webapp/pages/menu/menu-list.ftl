@@ -184,7 +184,7 @@
 
 </p>
 
-<div class="row">
+<div class="row animated fadeInLeft">
     <div class="col-md-4">
         <div class="form-group">
             <div class="col-md-12 ">

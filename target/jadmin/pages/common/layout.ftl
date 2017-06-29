@@ -57,6 +57,13 @@
 //                $(this).closest('li').addClass('active');
 //            });
             initUrlActive();
+            var item = localStorage.getItem("layout_animated");
+            if(item==null){
+                $('#layout_center').removeClass("animated bounceInRight").addClass("animated bounceInRight");
+                $('#layout_north').removeClass("animated bounceInUp").addClass("animated bounceInUp");
+                $('#layout_west').removeClass("animated bounceInLeft").addClass("animated bounceInLeft");
+                localStorage.setItem("layout_animated","off")
+            }
         });
 
         function goUrl(url) {
@@ -81,20 +88,20 @@
 
 <#macro body>
 <body >
-<div class="ui-layout-center"><#nested></div>
-<div class="ui-layout-north">
+<div id="layout_center" class="ui-layout-center "><#nested></div>
+<div id="layout_north" class="ui-layout-north ">
     <div style="float:right;margin-right:3px;"><a href="javascript:void(0);" onclick="logout();"><img title="退出" src="${ctx}/static/img/logout.png"/></a></div>
 </div>
 <#--<div class="ui-layout-south">South</div>-->
 <#--<div class="ui-layout-east">East</div>-->
-<div class="ui-layout-west">
+<div id="layout_west" class="ui-layout-west ">
     <nav data-ride="menu" style="width: 200px">
         <ul id="treeMenu" class="tree tree-menu" data-ride="tree">
             <li><a id="${"/index"?replace("/","")}" href="javascript:void(0);" onclick="goUrl('/index')"><i class="icon icon-th"></i>首页</a></li>
             <li class="open">
                 <a href="#"><i class="icon icon-time"></i>系统管理</a>
                 <ul>
-                    <li><a id="${"/project/list"?replace("/","")}" href="javascript:void(0);" onclick="goUrl('/project/list')"><i class="icon icon-server"></i>项目管理</a></li>
+                    <li><a id="${"/project/init"?replace("/","")}" href="javascript:void(0);" onclick="goUrl('/project/init')"><i class="icon icon-server"></i>项目管理</a></li>
                     <li><a id="${"/user/init"?replace("/","")}" href="javascript:void(0);" onclick="goUrl('/user/init')"><i class="icon icon-user"></i>用户管理</a></li>
                     <li><a id="${"/menu/list"?replace("/","")}" href="javascript:void(0);" onclick="goUrl('/menu/list')"><i class="icon icon-list-alt"></i>菜单管理</a></li>
                     <li><a id="${"/log/list"?replace("/","")}" href="javascript:void(0);" onclick="goUrl('/log/list')"><i class="icon icon-file-text-o"></i>系统日志</a></li>

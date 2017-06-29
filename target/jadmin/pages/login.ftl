@@ -9,15 +9,27 @@
     <link rel="stylesheet" type="text/css" href="${ctx}/static/login/style.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/login/userpanel.css">
     <link rel="stylesheet" type="text/css" href="${ctx}/static/login/jquery.ui.all.css">
+    <link type="text/css" rel="stylesheet" href="${ctx}/static/zui/css/zui.min.css"/>
     <link type="text/css" rel="stylesheet" href="${ctx}/static/nice-validator/jquery.validator.css"/>
     <script charset="utf-8" type="text/javascript" src="${ctx}/static/jquery-1.11.2.min.js"></script>
     <script charset="utf-8" type="text/javascript" src="${ctx}/static/nice-validator/jquery.validator.min.js"></script>
     <script charset="utf-8" type="text/javascript" src="${ctx}/static/nice-validator/local/zh-CN.js"></script>
+    <script charset="utf-8" type="text/javascript" src="${ctx}/static/zui/js/zui.min.js"></script>
+    <script charset="utf-8" type="text/javascript" src="${ctx}/static/layer/layer/layer.js"></script>
+    <script charset="utf-8" type="text/javascript" src="${ctx}/static/web-util.js"></script>
     <script>
+        $(function () {
+            $('#loadingBtnExample').on('click', function () {
+                var $btn = $(this);
+                $btn.button('loading');
+
+                doLogin($btn);
+            });
+        });
         /**
          * 同步方法
          **/
-        function doLogin() {
+        function doLogin(obj) {
             $.ajax({
                 url: "${ctx }/doLogin",
                 type: 'post',
@@ -27,13 +39,18 @@
                 traditional: true,
                 success: function (rsData) {
                     if (rsData.code == 'SUCCESS') {
+                        localStorage.setItem("menuId", "index");
+                        localStorage.removeItem("layout_animated");
                         window.location.href = '${ctx}/index';
                     } else {
-                        $('#error_info').html(rsData.message);
+                        webUtil.msg(rsData.message,null);
+                        obj.button('reset');
                     }
                 }
             });
         }
+
+
     </script>
 
 </head>
@@ -47,20 +64,16 @@
             <div class="login_padding" id="login_model">
 
                 <h2>用户名</h2>
-                <label>
                     <input type="text" name="username" id="username" class="txt_input txt_input2"<#---->/>
-                </label>
                 <h2>密码</h2>
-                <label>
                     <input type="password" name="password" id="password" class="txt_input"/>
-                </label>
-                <div class="rem_sub">
-                    <div class="rem_sub_l">
-                        <label for="checkbox" style="color: red" id="error_info"></label>
-                    </div>
+                <div style="text-align: center">
                     <label>
-                        <input type="button" class="sub_button" name="button" id="button" value="登录"
-                               onclick="doLogin();" style="opacity: 0.7;">
+                    <#--<input type="button" class="sub_button" name="button" id="button" value="登录"-->
+                    <#--onclick="doLogin();" style="opacity: 0.7;">-->
+                        <button id="loadingBtnExample" type="button" class="btn btn-primary sub_button"
+                                data-loading-text="正在登录...">登录
+                        </button>
                     </label>
                 </div>
             </div>

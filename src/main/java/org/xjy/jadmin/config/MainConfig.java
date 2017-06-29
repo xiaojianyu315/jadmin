@@ -28,6 +28,8 @@ public class MainConfig extends JFinalConfig {
         me.setDevMode(AppConstant.DEV_MODE);
         me.setEncoding(AppConstant.ENCODING);
         me.setViewType(ViewType.FREE_MARKER);
+        me.setError404View("/pages/common/404.ftl");
+        me.setError500View("/pages/common/500.ftl");
 
     }
 
