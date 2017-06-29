@@ -31,6 +31,6 @@ public class JadminUser extends BaseJadminUser<JadminUser> {
 
     public static void removeMenuId(long menuId) {
         String sql = "update jadmin_user set `menuIds` = replace(menuIds,'," + menuId + ",',',')";
-        Db.update(sql, menuId);
+        Db.update(sql);
     }
 }

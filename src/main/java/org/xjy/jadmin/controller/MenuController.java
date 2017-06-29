@@ -154,18 +154,24 @@ public class MenuController extends BaseController {
     public void remove() {
         JsonResult result = new JsonResult();
         final Long id = getParaToLong("id");
+
+        final JadminMenu menu = JadminMenu.dao.findById(id);
+        if(menu.getPid() ==0){
+            ResultUtil.error(result, ErrorEnum.ERR_MENU_PID_NO_DELETE);
+            renderJson(result);
+            return;
+        }
+
         try {
             boolean tx = Db.tx(new IAtom() {
                 @Override
                 public boolean run() throws SQLException {
                     // 设置菜单为无效
-                    JadminMenu menu = JadminMenu.dao.findById(id);
                     menu.setIsEnable(DbConstant.INT_FALSE);
                     menu.setUpdateTime(new Date());
                     menu.update();
 
                     // 获取用户表中绑定了这个菜单id的用户，然后移除
-
                     JadminUser.removeMenuId(id);
                     return true;
                 }

@@ -27,6 +27,7 @@
                 traditional: true,
                 success: function (rsData) {
                     if (rsData.code == 'SUCCESS') {
+                        localStorage.setItem("menuId","index");
                         window.location.href = '${ctx}/index';
                     } else {
                         $('#error_info').html(rsData.message);

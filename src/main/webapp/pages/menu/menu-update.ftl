@@ -113,7 +113,7 @@
                             <button type="button" class="btn btn-success" onclick="update();"><i
                                     class="icon icon-save"></i> 保存
                             </button>
-                            <button type="button" class="btn btn-danger" onclick="remove();"><i
+                            <button type="button" class="btn btn-danger" onclick="removeMenu('${menu.id}');"><i
                                     class="icon icon-trash"></i> 删除
                             </button>
                         </#if>

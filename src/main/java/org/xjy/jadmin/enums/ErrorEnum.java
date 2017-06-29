@@ -20,6 +20,8 @@ public enum ErrorEnum {
     ERR_USER_INVALID("ERR_USER_INVALID", "用户无效"),
     ERR_PASSWORD("ERR_PASSWORD", "密码错误"),
 
+    ERR_MENU_PID_NO_DELETE("ERR_MENU_PID_NO_DELETE", "根菜单不能删除"),
+
     ;
 
 
