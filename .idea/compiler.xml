@@ -6,11 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jadmin" />
+        <module name="jadmin-auth" />
+        <module name="jadmin-common" />
+        <module name="jadmin-shc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jadmin" target="1.7" />
+      <module name="jadmin" target="1.5" />
+      <module name="jadmin-auth" target="1.7" />
+      <module name="jadmin-common" target="1.5" />
+      <module name="jadmin-shc" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

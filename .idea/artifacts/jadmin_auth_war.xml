@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jadmin-auth:war">
+    <output-path>$PROJECT_DIR$/jadmin-auth/target</output-path>
+    <root id="archive" name="jadmin-auth.war">
+      <element id="artifact" artifact-name="jadmin-auth:war exploded" />
+    </root>
+  </artifact>
+</component>

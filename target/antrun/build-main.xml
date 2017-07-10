@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <copydir dest="/Users/xiaojianyu/IdeaProjects/jadmin/target/classes/" forceoverwrite="true" src="/Users/xiaojianyu/IdeaProjects/jadmin/src/main/configs/dev/"></copydir>
-</target>
-</project>

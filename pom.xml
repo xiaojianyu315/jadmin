@@ -3,82 +3,20 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.xjy</groupId>
     <artifactId>jadmin</artifactId>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>jadmin-shc</module>
+        <module>jadmin-auth</module>
+        <module>jadmin-common</module>
+    </modules>
     <name>jadmin</name>
     <url>http://maven.apache.org</url>
     <properties>
         <jdk.version>1.7</jdk.version>
-        <spring.version>4.2.9.RELEASE</spring.version>
     </properties>
 
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <env>dev</env>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <env>test</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>online</id>
-            <properties>
-                <env>online</env>
-            </properties>
-        </profile>
-    </profiles>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
-                <configuration>
-                    <source>${jdk.version}</source>
-                    <target>${jdk.version}</target>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <copydir dest="${project.build.directory}/classes/"
-                                         src="${basedir}/src/main/configs/${env}/" forceoverwrite="true">
-                                </copydir>
-                            </tasks>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-
-        </plugins>
-        <finalName>jadmin</finalName>
-    </build>
-
-
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -86,21 +24,18 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/com.jfinal/jfinal -->
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>jfinal</artifactId>
             <version>3.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.alibaba/druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.0.31</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -130,36 +65,6 @@
             <version>1.2.17</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.29</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpmime</artifactId>
-            <version>4.3.3</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
-            <version>1.10</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.xiaoleilu</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>3.0.7</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>

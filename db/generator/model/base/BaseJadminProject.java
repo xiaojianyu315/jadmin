@@ -1,4 +1,4 @@
-package org.xjy.jadmin.model.base;
+package org.xjy.jadmin.auth.model.base;
 
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.IBean;

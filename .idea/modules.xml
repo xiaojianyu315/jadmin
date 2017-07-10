@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jadmin.iml" filepath="$PROJECT_DIR$/jadmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jadmin-auth/jadmin-auth.iml" filepath="$PROJECT_DIR$/jadmin-auth/jadmin-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jadmin-common/jadmin-common.iml" filepath="$PROJECT_DIR$/jadmin-common/jadmin-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jadmin-shc/jadmin-shc.iml" filepath="$PROJECT_DIR$/jadmin-shc/jadmin-shc.iml" />
     </modules>
   </component>
 </project>

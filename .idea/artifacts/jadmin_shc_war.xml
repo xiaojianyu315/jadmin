@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jadmin-shc:war">
+    <output-path>$PROJECT_DIR$/jadmin-shc/target</output-path>
+    <root id="archive" name="jadmin-shc.war">
+      <element id="artifact" artifact-name="jadmin-shc:war exploded" />
+    </root>
+  </artifact>
+</component>
