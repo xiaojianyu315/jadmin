@@ -73,14 +73,6 @@ public abstract class BaseJadminMenu<M extends BaseJadminMenu<M>> extends Model<
 		return get("sort");
 	}
 
-	public void setIsEnable(Integer isEnable) {
-		set("isEnable", isEnable);
-	}
-
-	public Integer getIsEnable() {
-		return get("isEnable");
-	}
-
 	public void setPid(Long pid) {
 		set("pid", pid);
 	}

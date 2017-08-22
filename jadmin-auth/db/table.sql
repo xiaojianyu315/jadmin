@@ -41,7 +41,6 @@ CREATE TABLE `jadmin_menu` (
   `url` varchar(255) NOT NULL COMMENT '菜单路径，每个项目唯一',
   `level` int(2) NOT NULL COMMENT '菜单级别，层次，如1、2、3级菜单',
   `sort` int(3) NOT NULL COMMENT '排序',
-  `isEnable` INT(1) NOT NULL COMMENT '是否有效，1-是；0-否',
   `pid` BIGINT(20) NOT NULL COMMENT '父菜单id',
   `createTime` datetime NOT NULL COMMENT '创建时间',
   `updateTime` datetime NOT NULL COMMENT '修改时间',

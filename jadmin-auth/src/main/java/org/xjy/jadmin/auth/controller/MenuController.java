@@ -111,7 +111,6 @@ public class MenuController extends BaseController {
                 }
             }
 
-            jadminMenu.setIsEnable(DbConstant.INT_TRUE);
             jadminMenu.setCreateTime(new Date());
             jadminMenu.setUpdateTime(new Date());
             jadminMenu.save();
@@ -134,7 +133,6 @@ public class MenuController extends BaseController {
             int isEnable = "on".equals(getPara("isEnable")) ? 1 : 0;
             JadminMenu jadminMenu = getModel(JadminMenu.class);
             jadminMenu.setUpdateTime(new Date());
-            jadminMenu.setIsEnable(isEnable);
             jadminMenu.update();
             ResultUtil.success(result);
         } catch (Exception e) {
@@ -166,7 +164,6 @@ public class MenuController extends BaseController {
                 @Override
                 public boolean run() throws SQLException {
                     // 设置菜单为无效
-                    menu.setIsEnable(DbConstant.INT_FALSE);
                     menu.setUpdateTime(new Date());
                     menu.update();
 

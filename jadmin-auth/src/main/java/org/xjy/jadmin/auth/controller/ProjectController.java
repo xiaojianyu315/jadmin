@@ -94,7 +94,6 @@ public class ProjectController extends BaseController {
                     menu.setSort(1);
                     menu.setCreateTime(new Date());
                     menu.setUpdateTime(new Date());
-                    menu.setIsEnable(DbConstant.INT_TRUE);
                     menu.setProjectCode(project.getCode());
                     menu.setType(0);
                     menu.setUrl("--");

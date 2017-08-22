@@ -15,11 +15,11 @@ public class JadminMenu extends BaseJadminMenu<JadminMenu> {
         return dao.find("select * from jadmin_menu where menuIds in (" + menuIds + ")");
     }
 
-    public List<JadminMenu> findList(int isEnable) {
-        return dao.find("select * from jadmin_menu where isEnable = ?", isEnable);
+    public List<JadminMenu> findList() {
+        return dao.find("select * from jadmin_menu ");
     }
 
     public List<JadminMenu> findByProjectCode(String projectCode) {
-        return dao.find("select * from jadmin_menu where projectCode = ? and isEnable = ?", projectCode, 1);
+        return dao.find("select * from jadmin_menu where projectCode = ?", projectCode);
     }
 }

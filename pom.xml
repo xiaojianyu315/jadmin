@@ -9,6 +9,7 @@
         <module>jadmin-shc</module>
         <module>jadmin-auth</module>
         <module>jadmin-common</module>
+        <module>jadmin-shc-client</module>
     </modules>
     <name>jadmin</name>
     <url>http://maven.apache.org</url>
@@ -27,7 +28,7 @@
         <dependency>
             <groupId>com.jfinal</groupId>
             <artifactId>jfinal</artifactId>
-            <version>3.1</version>
+            <version>3.2</version>
         </dependency>
 
         <dependency>
